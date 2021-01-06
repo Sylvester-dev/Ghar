@@ -1,4 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap');
+
 *{
   margin: 0;
   padding: 0;
+}
+
+.body{
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+.header{
+  padding: 15px 0;
+  background: #fff;
+  -webkit-box-shadow: 0 4px 16px 0 rgba(44,50,65,.08);
+  box-shadow: 0 4px 16px 0 rgba(44,50,65,.08);
+  z-index: 2
+}
+
+.navbar-brand{
+  font-weight: bold;
+}
+
+#navbarNav{
+  justify-content: flex-end;
+}
+
+
+.dash{
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 47px;
+}
+
+.card__box{
+  display: flex;
+  justify-content: center;
+}
+
+.card__box :hover{
+  background-color:aliceblue;
+}
+
+.card__b:hover{
+  background-color: #0B5ED7 !important;
+}
+
+.card {
+  padding: 40px 25px
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 13px 18px -8px rgba(0,0,0,.15),0 11px 55px 10px rgba(0,0,0,.07);
+  box-shadow: 0 13px 18px -8px rgba(0,0,0,.15),0 11px 55px 10px rgba(0,0,0,.07)
+}
+
+.card__con{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  width: 100%;
+}
+
+.input-field{
+  margin: 4px auto;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+  outline-width: 0;
+}
+
+.waves{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.nav-item{
+  height: 20px;
+  width: 20px;
 }
