@@ -4,7 +4,7 @@ var path = require('path');
 
 module.exports = {
   entry: './src/index.js',
-  node: { global: true, fs: 'empty' },
+  node: { global: true, fs: 'empty' ,"net": 'empty', "tls": 'empty'},
   mode: "development",
   target: 'web',
   output: {

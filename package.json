@@ -28,32 +28,25 @@
   },
   "dependencies": {
     "@metamask/detect-provider": "^1.2.0",
+    "@metamask/safe-event-emitter": "^2.0.0",
     "@portis/web3": "^2.0.0-beta.59",
     "@truffle/hdwallet-provider": "^1.0.43",
+    "axios": "^0.21.1",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
     "babel-preset-stage-3": "6.24.1",
     "babel-register": "6.26.0",
-    "got": "^9.6.0",
     "bootstrap": "4.3.1",
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "chai-bignumber": "3.0.0",
-    "chainpoint-js": "^1.3.0",
     "crypto-js": "^4.0.0",
-    "ganache-cli": "^6.10.1",
-    "hash-the-timestamp": "^1.1.0",
+    "got": "^9.6.0",
     "identicon.js": "^2.3.3",
     "path-browserify": "^1.0.1",
-    "skynet-js": "^0.1.0",
     "truffle": "^5.1.42",
     "web3": "^1.2.11"
-  },
-  "node": {
-    "fs": "empty",
-    "net": "empty",
-    "tls": "empty"
   }
 }
