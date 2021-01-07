@@ -22,9 +22,9 @@
   font-weight: bold;
 }
 
-#navbarNav{
+/* #navbarNav{
   justify-content: flex-end;
-}
+} */
 
 
 .dash{
@@ -37,7 +37,7 @@
 
 .card__box{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .card__box :hover{
@@ -63,6 +63,12 @@
   margin: 10px;
   width: 100%;
 }
+.card__con1{
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  width: 20%;
+}
 
 .input-field{
   margin: 4px auto;
@@ -73,9 +79,19 @@
   outline-width: 0;
 }
 
+.input{
+  border: black;
+}
+
 .waves{
   position: absolute;
   bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+.waves1{
+  position: absolute;
+  top: 0;
   left: 0;
   z-index: -1;
 }
@@ -83,4 +99,21 @@
 .nav-item{
   height: 20px;
   width: 20px;
+}
+
+.nav-link{
+  padding: initial;
+  font-weight: bold;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: darkcyan !important;
+  flex-direction: column-reverse;
+}
+
+.body1{
+  background-color: whitesmoke;
+}
+
+.input__data{
+  margin: 5px auto;
+  width: fit-content;
 }
