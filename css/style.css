@@ -10,6 +10,11 @@
   overflow: hidden;
 }
 
+.body1{
+  background-color: whitesmoke;
+  margin: 10px auto;
+}
+
 .header{
   padding: 15px 0;
   background: #fff;
@@ -26,6 +31,9 @@
   justify-content: flex-end;
 } */
 
+section{
+  height: 100vh;
+}
 
 .dash{
   text-align: center;
@@ -109,11 +117,18 @@
   flex-direction: column-reverse;
 }
 
-.body1{
-  background-color: whitesmoke;
-}
+
 
 .input__data{
   margin: 5px auto;
   width: fit-content;
+}
+
+.section1{
+  height: 82vh;
+}
+
+#section2{
+  height: 95vh;
+  margin: 30px 10px;
 }

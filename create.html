@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
   <title>Ocean Protocol</title>
 </head>
-<body class="body body1">
+<body class="body1">
   
   <header class="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -25,6 +25,9 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="./create.html">Register</a>
             </li>
+            <li class="nav-item">
+              <a style="margin-left: 60px;" class="nav-link" aria-current="page" href="#section2">Data</a>
+            </li>
             <!-- <li class="nav-item">
               <a class="navbar-brand" href="https://github.com/Sylvester-dev/ocean">
                 <img src="https://pngimg.com/uploads/github/github_PNG40.png" alt="" width="30" height="30" class="d-inline-block align-top">
@@ -35,18 +38,18 @@
       </div>
     </nav>
   </header>
-  <section>
+  <section class="section1">
     <div class="dash">
       <h1>Create a new Data Token</h1>
     </div>
     <div>
       
       <div class="col input__data">
-        <input class="input-field input"
+        <input class="input-field input" id="token_name"
         type="text"
         placeholder="Name of your Token"
       />
-      <input class="input-field"
+      <input class="input-field" id="token_symbol"
       type="text"
       placeholder="Symbol of your Token"
       />
@@ -66,14 +69,62 @@
         <option selected>Data License</option>
         <option value="1">No License</option>
       </select>
-      <button class="card__con1 card__b btn btn-primary" type="submit">Create</button>
+      <button class="card__con1 card__b btn btn-primary" type="submit" onclick="AddRow()">Create</button>
     </div>
     <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#000" fill-opacity="1" d="M0,64L34.3,58.7C68.6,53,137,43,206,64C274.3,85,343,139,411,138.7C480,139,549,85,617,101.3C685.7,117,754,203,823,224C891.4,245,960,203,1029,181.3C1097.1,160,1166,160,1234,176C1302.9,192,1371,224,1406,240L1440,256L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
   </section>
+  <section id="section2">
+
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Token Name</th>
+            <th scope="col">Token Symbol</th>
+          </tr>
+        </thead>
+        <tbody  id="show">
+          <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
   
+  </section>
+	<script>
+		
+		var list1 = [];
+		var list2 = [];
+		var list3 = [];
 
+		var n = 1;
+		var x = 0;
 
+		function AddRow(){
 
+			var AddRown = document.getElementById('show');
+			var NewRow = AddRown.insertRow(n);
+
+			
+			list2[x] = document.getElementById("token_name").value;
+			list3[x] = document.getElementById("token_symbol").value;
+
+			var cel1 = NewRow.insertCell(0);
+			var cel2 = NewRow.insertCell(1);
+			var cel3 = NewRow.insertCell(2);
+
+			cel1.innerHTML = n;
+			cel2.innerHTML = list2[x];
+			cel3.innerHTML = list3[x];
+
+			n++;
+			x++;
+		}
+
+	</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </body>
