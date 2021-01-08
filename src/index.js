@@ -1,45 +1,26 @@
-const detectEthereumProvider = require('@metamask/detect-provider')
-const got = require('got');
+import Portis from '@portis/web3';
+import Web3 from 'web3';
 
+const portis = new Portis('517f90d0-d4e4-4100-b716-ae39442ab733', 'rinkeby');
+const web3 = new Web3(portis.provider);
 
-async function web3load() {
+const h = document.getElementById('create_datatoken')
+const l = document.getElementById('tkn_name')
+const k = document.getElementById('tkn_sym')
+const g = document.getElementById('tkn_link')
+const d = document.getElementById('tkn_sample')
+const t = document.getElementById('tkn_desc')
 
-  try {
-    const provider = await detectEthereumProvider();
-
-    if (provider) {
-      // From now on, this should always be true:
-      // provider === window.ethereum
-      startApp(provider); // initialize your app
-    } else {
-      console.log('Please install MetaMask!');
-    } 
-  }
-  catch (e){
-  console.log(e.message);
-  }
-}
-
-
-
-const messariwork = () => {
-    document.getElementById("something").addEventListener("click" , async() => {
-        try {
-          const response = await got("https://data.messari.io/api/v1/assets/btc/metrics/market-data")
-      .then(response => {
-          console.log(response.body);
-        });
-        }
-        catch (error) {
-        console.log(error)
-      } 
+const DataToken_create = () => {
+    h.addEventListener( 'click' , async () => {
+        
     })
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        messariwork()
-        web3load()
+        DataToken_create()
+        
     }
    catch (e){
      console.log(e.message);
