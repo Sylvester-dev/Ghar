@@ -27,12 +27,10 @@
   font-weight: bold;
 }
 
-/* #navbarNav{
-  justify-content: flex-end;
-} */
 
 section{
   height: 100vh;
+  z-index: 1;
 }
 
 .dash{
@@ -91,6 +89,7 @@ section{
   border: black;
 }
 
+
 .waves{
   position: absolute;
   bottom: 0;
@@ -102,11 +101,6 @@ section{
   top: 0;
   left: 0;
   z-index: -1;
-}
-
-.nav-item{
-  height: 20px;
-  width: 20px;
 }
 
 .nav-link{
@@ -132,3 +126,4 @@ section{
   height: 95vh;
   margin: 30px 10px;
 }
+
