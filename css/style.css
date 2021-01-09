@@ -8,11 +8,18 @@
 .body{
   margin: 10px auto;
   overflow: hidden;
+  background-color:aliceblue ;
 }
 
 .body1{
   background-color: whitesmoke;
   margin: 10px auto;
+}
+
+.body2{
+  background-color: antiquewhite;
+  margin: 10px auto;
+  overflow: hidden;
 }
 
 .header{
@@ -78,6 +85,14 @@ section{
 
 .input-field{
   margin: 4px auto;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+  outline-width: 0;
+}
+
+.input-field-transfer{
   padding: 15px;
   width: 100%;
   border: none;
