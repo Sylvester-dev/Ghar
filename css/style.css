@@ -17,7 +17,7 @@
 }
 
 .body2{
-  background-color: antiquewhite;
+  background-color:aqua;
   margin: 10px auto;
   overflow: hidden;
 }
@@ -34,6 +34,9 @@
   font-weight: bold;
 }
 
+.nav-link:hover{
+  color: rgb(96, 160, 245) !important;
+}
 
 section{
   height: 100vh;
@@ -53,7 +56,12 @@ section{
   justify-content: space-evenly;
 }
 
-.card__box :hover{
+.card__box1{
+  display: flex;
+  justify-content:center;
+}
+
+.card__box :hover,.card__box1 :hover{
   background-color:aliceblue;
 }
 
@@ -65,15 +73,22 @@ section{
   padding: 40px 25px
 }
 
+.card_home{
+  margin: 10px;
+  padding: 50px;
+}
+
+.card-title{
+  text-align: center;
+}
+
 .card:hover {
   -webkit-box-shadow: 0 13px 18px -8px rgba(0,0,0,.15),0 11px 55px 10px rgba(0,0,0,.07);
   box-shadow: 0 13px 18px -8px rgba(0,0,0,.15),0 11px 55px 10px rgba(0,0,0,.07)
 }
 
 .card__con{
-  display: flex;
-  justify-content: center;
-  margin: 10px;
+  margin: 10px auto;
   width: 100%;
 }
 .card__con1{
