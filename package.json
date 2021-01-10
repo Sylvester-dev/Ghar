@@ -25,6 +25,14 @@
     "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
+    "@ew-did-registry/claims": "^0.0.1-alpha.694.1",
+    "@ew-did-registry/did": "^0.0.1-alpha.694.1",
+    "@ew-did-registry/did-document": "^0.0.1-alpha.694.1",
+    "@ew-did-registry/did-ethr-resolver": "^0.0.1-alpha.694.1",
+    "@ew-did-registry/did-ipfs-store": "^0.0.1-alpha.694.1",
+    "@ew-did-registry/did-registry": "^0.0.1-alpha.694.1",
+    "@ew-did-registry/did-resolver-interface": "^0.0.1-alpha.694.1",
+    "@ew-did-registry/keys": "^0.0.1-alpha.694.1",
     "@metamask/detect-provider": "^1.2.0",
     "@openzeppelin/contracts": "^3.3.0",
     "@portis/web3": "^2.0.0-beta.59",

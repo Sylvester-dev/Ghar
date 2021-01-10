@@ -6,14 +6,22 @@ import DTFactory from './abi/DTFactory.json'
 import Metadata from './abi/Metadata.json' 
 import FixedRateExchange from './abi/FixedRateExchange.json'
 import swal from 'sweetalert';
+/* import axios from 'axios' */
 /* import  { SkynetClient }  from "./skynet-js" */
 /* import CryptoJS from "./crypto-js" */
+
+/* import { Operator } from '@ew-did-registry/did-ethr-resolver';
+import { Keys } from '@ew-did-registry/keys';
+import { Methods } from '@ew-did-registry/did';
+import DIDRegistry from '@ew-did-registry/did-registry';
+import { DidStore } from '@ew-did-registry/did-ipfs-store'; */
+
 
 
 const portis = new Portis('517f90d0-d4e4-4100-b716-ae39442ab733', 'rinkeby');
 const web3 = new Web3(portis.provider);
 
-const n = document.getElementById('something')
+const n = document.getElementById('messari')
 
 const h = document.getElementById('create_datatoken')
 const l = document.getElementById('tkn_name')
@@ -29,7 +37,7 @@ const Txn_Hash = document.getElementById('tnx_hash')
 const auth_link = document.getElementById('auth_link')
 const auth_add = document.getElementById('auth_add')
 
-const transferbtn = document.getElementById('transfer')
+const transferbtn = document.getElementById('transferk')
 const cont_add = document.getElementById('contract_add')
 const re_add = document.getElementById('re_add')
 /* 
@@ -45,6 +53,54 @@ const DataToken_create = () => {
     h.addEventListener( 'click' , async () => {
         
         try{
+
+         /*  const store = new DidStore(ipfsApi);
+
+          const userKeys = new Keys();
+          const userAddress = userKeys.getAddress();
+          const userDid = `did:${Methods.Erc1056}:${userAddress}` ;
+
+          const userOperator = new Operator(userKeys, resolverSettings);
+
+          const user = new DIDRegistry(userKeys, userDid, userOperator, store);
+
+          await user.document.create();
+
+          const userClaims = user.claims.createClaimsUser();
+
+
+          const issuerKeys = new Keys(); 
+          const issuerAddress = issuerKeys.getAddress(); 
+          const issuerDid = `did:${Methods.Erc1056}:${issuerAddress}` ; 
+          const issuerOperator = new Operator(issuerKeys, resolverSettings); 
+          const issuer = new DIDRegistry(issuerKeys, issuerDid, issuerOperator, store); 
+          const issuerClaims = issuer.claims.createClaimsIssuer(); 
+
+
+          const verifierKeys = new Keys(); 
+          const verifierAddress = verifierKeys.getAddress(); 
+          const verifierDid = `did:${Methods.EnergyWeb}:${verifierAddress}` ; 
+          const verifierOperator = new Operator(verifierKeys, resolverSettings); 
+          const verifier = new DIDRegistry(verifierKeys, verifierDid, verifierOperator, store); 
+          const verifierClaims = verifier.claims.createClaimsVerifier();
+        
+          const claimData = {
+            name: 'Lisence', 
+            sn: 'abc123',
+          }; 
+        const token = await userClaims.createPublicClaim(publicData); 
+        console.log(token)
+        const issuedToken = await issuerClaims.issuePublicClaim(token);
+
+        const claimUrl = await userClaims.publishPublicClaim(issuedToken, publicData); 
+
+        const verified = await claimsVerifier.verifyPublicProof(claimUrl);
+        console.log(verified)
+ */
+
+
+
+
             const accounts = await web3.eth.getAccounts()
             /* console.log(accounts[0]) */
             const dtf = new web3.eth.Contract(DTFactory.abi,'0x3fd7A00106038Fb5c802c6d63fa7147Fe429E83a')
@@ -52,7 +108,7 @@ const DataToken_create = () => {
             /* const client = new SkynetClient("https://siasky.net/")
             const { skylink } = await client.upload(file)
             console.log(skylink) */
-            const newdt = await dtf.methods.createToken(g.value,l.value, k.value,/* 'bleh','bleh','bleh', */ web3.utils.toWei('1')).send({from: accounts[0]})
+            const newdt = await dtf.methods.createToken((g.value +" "+ t.value),l.value, k.value,/* 'bleh','bleh','bleh', */ web3.utils.toWei('1')).send({from: accounts[0]})
             console.log(newdt.events.TokenCreated.returnValues.newTokenAddress)
             const lol = newdt.events.TokenCreated.returnValues.newTokenAddress
             const kl = new web3.eth.Contract(DataTokenTemplate.abi , lol)
@@ -100,6 +156,8 @@ const DataToken_create = () => {
 const authenticate_link = () => {
     auth_link.addEventListener( 'click' , async () => {
         try{
+
+            const accounts = await web3.eth.getAccounts()
             const tm = new web3.eth.Contract(DataTokenTemplate.abi , auth_add.value)
 
             const fg = await tm.methods.blob().call({from: accounts[0]})
@@ -133,7 +191,7 @@ function timeConverter(UNIX_timestamp){
         const a = await web3.eth.getTransaction(Txn_Hash.value);
         const b = await web3.eth.getBlock(a.blockHash);
 
-        swal("Timestamp for you file is!", timeConverter(b.timestamp) , "info")
+        swal("Timestamp for you datatoken is!", timeConverter(b.timestamp) , "info")
         })
       }
 
@@ -141,13 +199,21 @@ function timeConverter(UNIX_timestamp){
 
     const transfertkn = () => {
         transferbtn.addEventListener("click" , async () => {
+            const accounts = await web3.eth.getAccounts()
             const lm = new web3.eth.Contract(DataTokenTemplate.abi , cont_add.value)
             const gg = await lm.methods.transfer(re_add.value ,web3.utils.toWei('1')).send({from: accounts[0]})
-            console.log(gg)
+
+            swal({
+              title: "Good News!",
+              text: "DataToken Transferred",
+              icon: "success",
+            })
+            /* console.log(gg) */
         })
     }
 
 
+    
     
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -157,6 +223,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         authenticate_link()
         transfertkn()
         /* initBrowse() */
+        /* messari_demo() */
     }
    catch (e){
      console.log(e.message);

@@ -4,7 +4,7 @@ var path = require('path');
 
 module.exports = {
   entry: './src/index.js',
-  node: { global: true, fs: 'empty' ,"net": 'empty', "tls": 'empty'},
+  node: { global: true, fs: 'empty' ,"net": 'empty', "tls": 'empty',child_process: "empty"},
   mode: "development",
   target: 'web',
   output: {
@@ -15,6 +15,6 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, '/'),
     compress: true,
-    port: 9014
+    port: 9025
   }
 }; 
