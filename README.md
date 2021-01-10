@@ -24,3 +24,8 @@ Advantages of such system -
 3. `npm run start`
 4. `npm run dev`
 5. open browser at http://localhost:9000/
+
+
+
+### Requirements 
+- Portis Account or a genral metamask account
