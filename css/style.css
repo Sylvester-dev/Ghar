@@ -136,11 +136,20 @@ section{
   flex-direction: column-reverse;
 }
 
-
-
 .input__data{
   margin: 5px auto;
   width: fit-content;
 }
 
+.footer{
+  background-color: black;
+  padding: 16px;
+
+}
+
+.footer p{
+  color: #fff;
+  text-align: center;
+  padding-top: 8px;
+}
 
