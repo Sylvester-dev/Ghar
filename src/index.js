@@ -161,6 +161,11 @@ const authenticate_link = () => {
             const tm = new web3.eth.Contract(DataTokenTemplate.abi , auth_add.value)
 
             const fg = await tm.methods.blob().call({from: accounts[0]})
+            swal({
+              title: "Success",
+              text: "Information inside this datatoken is " + fg,
+              icon: "success",
+            })
             console.log(fg)
         }
         catch(e){
