@@ -7,17 +7,11 @@
 
 .body{
   margin: 10px auto;
-  overflow: hidden;
   background-color:aliceblue ;
 }
 
-.body1{
-  background-color: whitesmoke;
-  margin: 10px auto;
-}
-
 .body2{
-  background-color:aqua;
+  background-color:aliceblue;
   margin: 10px auto;
   overflow: hidden;
 }
@@ -121,14 +115,15 @@ section{
 
 
 .waves{
-  position: absolute;
-  bottom: 0;
+  position: relative;
+  bottom: 250px;
   left: 0;
   z-index: -1;
 }
+
 .waves1{
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: -1;
 }
@@ -148,12 +143,4 @@ section{
   width: fit-content;
 }
 
-.section1{
-  height: 82vh;
-}
-
-#section2{
-  height: 95vh;
-  margin: 30px 10px;
-}
 
