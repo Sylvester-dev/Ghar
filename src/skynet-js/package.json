@@ -1,0 +1,86 @@
+{
+  "_from": "skynet-js",
+  "_id": "skynet-js@0.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-QJ6guWFLlLlDdl99fkh3BTmL+HckC+cDwkrUgs4bgXSfLrrpKngGN3QIB2MKL33L8RzfH8iE6Htd2A9KGn6oaA==",
+  "_location": "/skynet-js",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "skynet-js",
+    "name": "skynet-js",
+    "escapedName": "skynet-js",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/skynet-js/-/skynet-js-0.1.0.tgz",
+  "_shasum": "de240968cd1a9e943417c4f8783be0a111277555",
+  "_spec": "skynet-js",
+  "_where": "/mnt/d/Hackathon/Sahaya-karmi",
+  "author": {
+    "name": "Karol Wypchlo"
+  },
+  "bugs": {
+    "url": "https://github.com/NebulousLabs/skynet-js/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "axios": "^0.19.2",
+    "path-browserify": "^1.0.1",
+    "url-parse": "^1.4.7"
+  },
+  "deprecated": false,
+  "description": "Sia Skynet Javascript Client",
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-jest": "^26.0.1",
+    "eslint": "^7.1.0",
+    "husky": "^4.2.3",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.0.9",
+    "prettier": "^2.0.2"
+  },
+  "files": [
+    "dist/*",
+    "src/*"
+  ],
+  "homepage": "https://nebulouslabs.github.io/skynet-js/",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "keywords": [
+    "sia"
+  ],
+  "license": "ISC",
+  "lint-staged": {
+    "*.{js}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,yml,md}": [
+      "prettier --write"
+    ]
+  },
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "name": "skynet-js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NebulousLabs/skynet-js.git"
+  },
+  "scripts": {
+    "prepublishOnly": "babel src --out-dir dist",
+    "test": "jest"
+  },
+  "version": "0.1.0"
+}
