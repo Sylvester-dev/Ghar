@@ -4,17 +4,12 @@ import DataTokenTemplate from './abi/DataTokenTemplate.json'
 /* const fs = require('fs'); */
 import DTFactory from './abi/DTFactory.json'
 import Metadata from './abi/Metadata.json' 
+import ERC20Token from './abi/ERC20.json'
 import FixedRateExchange from './abi/FixedRateExchange.json'
 import swal from 'sweetalert';
 /* import axios from 'axios' */
 /* import  { SkynetClient }  from "./skynet-js" */
 /* import CryptoJS from "./crypto-js" */
-
-/* import { Operator } from '@ew-did-registry/did-ethr-resolver';
-import { Keys } from '@ew-did-registry/keys';
-import { Methods } from '@ew-did-registry/did';
-import DIDRegistry from '@ew-did-registry/did-registry';
-import { DidStore } from '@ew-did-registry/did-ipfs-store'; */
 
 
 
@@ -53,53 +48,6 @@ const DataToken_create = () => {
     h.addEventListener( 'click' , async () => {
         
         try{
-
-         /*  const store = new DidStore(ipfsApi);
-
-          const userKeys = new Keys();
-          const userAddress = userKeys.getAddress();
-          const userDid = `did:${Methods.Erc1056}:${userAddress}` ;
-
-          const userOperator = new Operator(userKeys, resolverSettings);
-
-          const user = new DIDRegistry(userKeys, userDid, userOperator, store);
-
-          await user.document.create();
-
-          const userClaims = user.claims.createClaimsUser();
-
-
-          const issuerKeys = new Keys(); 
-          const issuerAddress = issuerKeys.getAddress(); 
-          const issuerDid = `did:${Methods.Erc1056}:${issuerAddress}` ; 
-          const issuerOperator = new Operator(issuerKeys, resolverSettings); 
-          const issuer = new DIDRegistry(issuerKeys, issuerDid, issuerOperator, store); 
-          const issuerClaims = issuer.claims.createClaimsIssuer(); 
-
-
-          const verifierKeys = new Keys(); 
-          const verifierAddress = verifierKeys.getAddress(); 
-          const verifierDid = `did:${Methods.EnergyWeb}:${verifierAddress}` ; 
-          const verifierOperator = new Operator(verifierKeys, resolverSettings); 
-          const verifier = new DIDRegistry(verifierKeys, verifierDid, verifierOperator, store); 
-          const verifierClaims = verifier.claims.createClaimsVerifier();
-        
-          const claimData = {
-            name: 'Lisence', 
-            sn: 'abc123',
-          }; 
-        const token = await userClaims.createPublicClaim(publicData); 
-        console.log(token)
-        const issuedToken = await issuerClaims.issuePublicClaim(token);
-
-        const claimUrl = await userClaims.publishPublicClaim(issuedToken, publicData); 
-
-        const verified = await claimsVerifier.verifyPublicProof(claimUrl);
-        console.log(verified)
- */
-
-
-
 
             const accounts = await web3.eth.getAccounts()
             /* console.log(accounts[0]) */
@@ -200,22 +148,61 @@ function timeConverter(UNIX_timestamp){
         })
       }
 
+      
 
-
-    const transfertkn = () => {
+    /* const transfertkn = () => {
         transferbtn.addEventListener("click" , async () => {
             const accounts = await web3.eth.getAccounts()
+
             const lm = new web3.eth.Contract(DataTokenTemplate.abi , cont_add.value)
             const gg = await lm.methods.transfer(re_add.value ,web3.utils.toWei('1')).send({from: accounts[0]})
 
+            const fxrate = new web3.eth.Contract(FixedRateExchange.abi,'0xeD1DfC5F3a589CfC4E8B91C1fbfC18FC6699Fbde') 
+
+            const te = await fxrate.methods.create('0x8967BCF84170c91B0d24D4302C2376283b0B3a07',cont_add.value, web3.utils.toWei('1')).send({from: accounts[0]})
+            console.log(te)
+
+            const exid = await fxrate.methods.generateExchangeId('0x8967BCF84170c91B0d24D4302C2376283b0B3a07',cont_add.value, accounts[0]).call({from: accounts[0]})
+            console.log(exid)
+            const tt = await lm.methods.approve(accounts[0],web3.utils.toWei('1')).send({from: accounts[0]})
+            console.log(tt)
+
+            const baseTokenCon = new web3.eth.Contract(ERC20Token.abi, '0x8967BCF84170c91B0d24D4302C2376283b0B3a07')
+            
+            const lk =  await baseTokenCon.methods.approve(re_add.value, web3.utils.toWei('1')).send({from: accounts[0]})
+            console.log(lk)
+
+            const hgu = await fxrate.methods.swap(exid, web3.utils.toWei('1')).send({from:accounts[0]})
+            console.log(hgu)
+
+
+
+            
             swal({
               title: "Good News!",
               text: "DataToken Transferred",
               icon: "success",
-            })
-            /* console.log(gg) */
+            }) 
+            console.log(gg)   
         })
-    }
+    } */
+
+
+    const transfertkn = () => {
+      transferbtn.addEventListener("click" , async () => {
+          const accounts = await web3.eth.getAccounts()
+          const lm = new web3.eth.Contract(DataTokenTemplate.abi , cont_add.value)
+          const gg = await lm.methods.transfer(re_add.value ,web3.utils.toWei('1')).send({from: accounts[0]})
+          
+          swal({
+            title: "Good News!",
+            text: "DataToken Transferred",
+            icon: "success",
+          })
+          /* console.log(gg)  */
+      })
+  }
+
 
 
     
@@ -229,6 +216,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         transfertkn()
         /* initBrowse() */
         /* messari_demo() */
+        /* ewf() */
     }
    catch (e){
      console.log(e.message);
